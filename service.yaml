@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+apiVersion: v1
+metadata:
+  name: dotnet-container-service
+spec:
+  selector:
+    app: dotnet-container
+  type: LoadBalancer
+  ports:
+    - name: container-port
+      port: 8080
+      targetPort: 80

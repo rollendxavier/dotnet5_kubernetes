@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-container-deployment
+spec:
+  selector:
+    matchLabels:
+      app: container-app-deployment
+      version: v1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: container-app-deployment
+        version: v1
+    spec:
+      containers:
+      - name: dotnet-app-container
+        image: container-deployment
+        ports:
+        - containerPort: 80
